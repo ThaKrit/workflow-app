@@ -1,0 +1,54 @@
+<div>
+  <div class="flex w-full flex-wrap items-center justify-between rounded-2xl px-12 py-6 md:flex-nowrap" style="
+        background-color: url('https://www.transparenttextures.com/patterns/cubes.png');
+        background-image: linear-gradient(
+          to right top,
+          #cf4af3,
+          #e73bd7,
+          #f631bc,
+          #fd31a2,
+          #ff3a8b,
+          #ff4b78,
+          #ff5e68,
+          #ff705c,
+          #ff8c51,
+          #ffaa49,
+          #ffc848,
+          #ffe652
+        );">
+    <div>
+      <h3 class="m-0 flex items-center text-lg font-medium">
+        Add Items
+      </h3>
+    </div>
+
+  </div>
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="p-4 bg-light rounded shadow-sm">
+    <div class="mb-3">
+
+      <label for="title" class="form-label">Title</label>
+      <input id="title" formControlName="title"
+        class="block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-900"
+        placeholder="Enter item title">
+      <p *ngIf="itemForm.get('title')?.invalid && itemForm.get('title')?.touched" class="text-danger">Title is required.
+      </p>
+    </div>
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount</label>
+      <input id="amount" type="number" formControlName="amount"
+        class="block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-900"
+        placeholder="Enter item amount">
+      <p *ngIf="itemForm.get('amount')?.invalid && itemForm.get('amount')?.touched" class="text-danger">Amount must be a
+        whole number.</p>
+    </div>
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input id="quantity" type="number" formControlName="quantity"
+        class="block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-900"
+        placeholder="Enter item quantity">
+      <p *ngIf="itemForm.get('quantity')?.invalid && itemForm.get('quantity')?.touched" class="text-danger">Quantity
+        must be a whole number.</p>
+    </div><br>
+    <button type="submit" class="rounded-full border border-green-500 px-5 py-1 text-white" [disabled]="isSubmitting">Add Item</button>
+    <p *ngIf="error" class="text-danger mt-3">{{ error }}</p>
+  </form>

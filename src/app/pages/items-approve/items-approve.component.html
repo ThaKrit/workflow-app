@@ -1,0 +1,81 @@
+<app-content title="Items Approved"></app-content>
+
+<div class="mt-8 rounded-2xl" style="background: rgb(146 151 179 / 13%)">
+    <div class="container mx-auto">
+      <div class="py-8">
+        <div class="py-4">
+          <div class="max-w-full overflow-x-auto rounded-lg">
+            <table class="w-full leading-normal text-white">
+              <thead>
+                <tr>
+                  <th
+                    scope="col"
+                    class="border-b border-gray-200 px-5 pl-10 py-3 text-left text-sm font-normal uppercase"
+                  >
+                    Items Name
+                  </th>
+                  <th
+                    scope="col"
+                    class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase"
+                  >
+                    Amount
+                  </th>
+                  <th
+                    scope="col"
+                    class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase"
+                  >
+                   Quantity
+                  </th>
+                  <th
+                    scope="col"
+                    class="border-b border-gray-200 px-5 py-3 pl-10 text-left text-sm font-normal uppercase"
+                  >
+                    status
+                  </th>
+                  <th
+                    scope="col"
+                    class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase"
+                  >
+                  Owner ID
+                </th>
+               
+                </tr>
+              </thead>
+              <tbody class="text-white">
+                <tr *ngFor="let item of filterItems; trackBy: trackById">
+                  <td class="border-b border-gray-200 p-5 text-m">
+                    <div class="flex items-center">
+                      <div class="shrink-0">
+                        <a href="#" class="relative block">
+                        </a>
+                      </div>
+                      <div class="ml-3 pl-6" >
+                        <p class="whitespace-nowrap">{{ item.title }}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-b border-gray-200 p-5 text-sm pl-9">
+                    <p class="whitespace-nowrap">{{ item.amount }}</p>
+                  </td>
+                  <td class="border-b border-gray-200 p-5 text-sm pl-9">
+                    <p class="whitespace-nowrap">{{ item.quantity }}</p>
+                  </td>
+                  <td class="border-b border-gray-200 p-5 text-sm ">
+                    <span
+                      class="relative inline-block px-3 py-1 font-semibold leading-tight"
+                    >
+                    
+                      <span *ngIf="item.status === 'APPROVED'" aria-hidden="true" class="absolute inset-0 rounded-full bg-green-500 opacity-50"></span>
+                      <span class="relative">{{ item.status }}</span>
+                    </span>
+                  </td>
+                  <td class="border-b border-gray-200 p-5 text-sm pl-12">
+                    
+                    <p class="whitespace-nowrap">{{ item.owner_id }}</p>
+                  </td>
+                  
+                  
+              </tbody>
+            </table>
+          </div>
+        </div></div></div></div>
